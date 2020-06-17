@@ -9,21 +9,22 @@ int main(int argc, char *argv[]){
         return -1;
     }
 
-    if(argc == 2 && arg.compare(argv[1]) == 0){
-        std::string mensagem;
+    std::string action = argv[1];
 
-        std::cout << arg.compare(argv[1]);
-        std::cout << "Informe a mensagem a ser impressa: " << std::endl;
-        std::cin >> mensagem;
-
-        std::cout << mensagem << std::endl; 
-    }
-
-    if(argc == 3 && arg.compare(argv[1]) == 0){
-        std::cout << argv[2] << std::endl;
-    }
-
-    else{
+    if(action != "add"){
+        std::cout << "Uso: " << argv[0] << " add <mensagem>" << std::endl;
         return -1;
     }
+    
+    std::string mensagem;
+
+    if(argc == 2){
+        std::cout << "Informe a mensagem a ser impressa: " << std::endl;
+        std::cin >> mensagem; 
+    }
+    else{
+        mensagem = argv[2];
+    }
+
+    std::cout << "Mensagem adicionada!" << std::endl;
 }
