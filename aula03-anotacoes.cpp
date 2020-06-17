@@ -1,9 +1,23 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 void show_usage(std::string const prog_name);
 
 int main(int argc, char *argv[]){
+    std::ifstream arquivo_entrada("nomearquivo.txt"); // cin
+    std::ofstream arquivo_saida("arquivo.txt", std::ios::app); // cout
+
+    if(arquivo_saida.fail()){
+        std::cout << "Arquivo não encontrado." << std::endl;
+        return 1;
+    }
+
+    // std::string nome;
+
+    // arquivo_entrada >> nome;
+    // arquivo_saida << "João" << std::endl;
+
     std::string arg = "add";
 
     if(argc == 1){
@@ -28,6 +42,7 @@ int main(int argc, char *argv[]){
         mensagem = argv[2];
     }
 
+    arquivo_saida << mensagem << std::endl;
     std::cout << "Mensagem adicionada!" << std::endl;
 }
 
