@@ -11,7 +11,7 @@ struct Diary {
 
     std::string filename;
     Message* messages;
-    size_t messages_size;
+    size_t messages_size = 0;
     size_t messages_capacity;
 
     void add(const std::string& message);
