@@ -2,11 +2,6 @@
 
 #include <iostream>
 
-Diary::~Diary()
-{
-    delete[] messages;
-}
-
 Diary::Diary(const std::string& filename) : 
     filename(filename),
     messages(nullptr),
@@ -23,9 +18,16 @@ void Diary::add(const std::string& message){
     }
 
     Message m;
+    
     Date d;
-    d.set_from_string()
+    d.set_from_string(d.get_current_date());
+
+    Time t;
+    t.set_from_string(t.get_current_time());
+
     m.content = message;
+    m.date = d;
+    m.time = t;
     messages[messages_size] = m;
     messages_size++;
 }
