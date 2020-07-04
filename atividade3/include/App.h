@@ -16,6 +16,10 @@ struct App {
     void add(const ::std::string message);
     void list_messages();
     void search(std::string msg);
+    std::string procura_e_armazena_formato_lista();
+    void menu_interativo();
 };
 
+
+// std::ifstream file("diary.md");
 #endif

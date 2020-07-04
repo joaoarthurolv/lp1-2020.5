@@ -18,6 +18,5 @@ struct Diary {
     void write();
     bool verificaSeDataExiste(std::string dataHoje, std::ifstream &file);    
     std::vector<Message> search(std::string msg);
-    std::string nome_diario(std::string &filename);
 };
 #endif

@@ -46,7 +46,7 @@ Diary::Diary(const std::string& filename) : filename(filename)
 
             if (tipo.compare("-") == 0) {
                 stream >> hr;
-                stream >> msg;
+                getline(stream, msg);
 
                 d.set_from_string(dt);
                 t.set_from_string(hr);
@@ -87,7 +87,7 @@ Diary::Diary(const std::string& filename) : filename(filename)
         std::ofstream file_write(filename, std::ios::app);
 
         if(file_read.fail()){
-            std::cout << "aaaaa" << std::endl;
+            std::cout << "Arquivo não encontrado." << std::endl;
         }
 
         if(file_write.fail()){
@@ -95,7 +95,6 @@ Diary::Diary(const std::string& filename) : filename(filename)
         }
 
         for(size_t i = 0; i < messages.size(); ++i){
-
 
             if(messages[i].alreadyOnFile == true){
                 continue;
@@ -120,6 +119,10 @@ bool Diary::verificaSeDataExiste(std::string dataHoje, std::ifstream &file){
     std::string line;
     dataHoje = "# " + dataHoje;
     bool valor;
+
+    if (file.fail()){
+        
+    }
 
     while(!file.eof()){
 
@@ -155,4 +158,3 @@ std::vector<Message> Diary::search(std::string msg){
 
     return mensagens;
 }
-
