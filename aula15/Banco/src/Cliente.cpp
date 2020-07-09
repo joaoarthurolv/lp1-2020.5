@@ -5,4 +5,6 @@ int Cliente::quantidade_clientes;
 Cliente::Cliente(){
     this->quantidade_clientes += 1;
 }
+Cliente::~Cliente(){
+}
 

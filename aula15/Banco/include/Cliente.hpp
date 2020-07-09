@@ -7,4 +7,5 @@ class Cliente{
     static int quantidade_clientes;
 
     Cliente();
+    ~Cliente();
 };

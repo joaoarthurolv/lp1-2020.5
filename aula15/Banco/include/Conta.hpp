@@ -11,6 +11,8 @@ class Conta{
     static int quantidade_contas;
 
     Conta();
+    Conta(Cliente& titular);
+    ~Conta();
 
     void saca(double valor);
     void deposita(double valor);

@@ -1,69 +1,37 @@
 #include "../include/Conta.hpp"
 #include <iostream>
 
+using namespace std;
+
 int main(int argc, char* argv[]){
-    
-    Conta a;
-    std::cout << a.quantidade_contas << std::endl;
-    Conta b;
-    std::cout << a.quantidade_contas << std::endl;
-    Conta c;
-    std::cout << a.quantidade_contas << std::endl;
 
-    Agencia ag;
-    Cliente cl1;
-    std::cout << cl1.quantidade_clientes << std::endl;
-    Cliente cl2;
-    std::cout << cl1.quantidade_clientes << std::endl;
-    Cliente cl3;
-    std::cout << cl1.quantidade_clientes << std::endl;
+    Cliente clC;
+    Cliente clD;
 
-    ag.nome = "Agência 1";
-    ag.numero = 444;
+    cout << "Quantidade de clientes: " << clC.quantidade_clientes << endl;
 
-    cl1.nome = "João";
-    cl1.cpf = "123.456.789-10";
+    clC.nome = "João";
+    clD.nome = "Maria";
 
-    cl2.nome = "Arthur";
-    cl2.cpf = "222.222.222-22";
+    Conta c(clC);
+    Conta d(clD);
+    Conta e(d);
 
-    cl3.nome = "Victor";
-    cl3.cpf = "999.999.999-99";
+    cout << "Titular da conta C: " << c.titular.nome << endl;
+    cout << "Titular da conta D: " << d.titular.nome << endl;
+    cout << "Titular da conta E: " << e.titular.nome << endl;
+    c.saldo = 20;
+    c.saca(15);
 
-    a.numero = 123;
-    a.saldo = 0;
-    a.titular = cl1;
-    a.agencia = ag;
+    cout << "Saldo da conta C: " << c.saldo << endl;
 
-    b.numero = 222;
-    b.saldo = 50;
-    b.titular = cl2;
-    b.agencia = ag;
+    c.deposita(50);
+    c.transfere(45, d);
 
-    c.numero = 999;
-    c.saldo = 2900;
-    c.titular = cl3;
-    c.agencia = ag;
+    cout << "Saldo da conta C: " << c.saldo << endl;
+    cout << "Saldo da conta D: " << d.saldo << endl;
+    cout << "Quantidade de contas: " << c.quantidade_contas << endl;
+    cout << "Quantidade de clientes: " << clC.quantidade_clientes << endl;
 
-    std::cout << "Dados da conta: \n" << std::endl;
-    std::cout << "Titular: " << a.titular.nome << std::endl;
-    std::cout << "Conta: " << a.numero << std::endl;
-    std::cout << "Agência: " << a.agencia.numero << std::endl;
-    std::cout << "Saldo atual: R$ " << a.saldo << std::endl;
-
-    std::cout << "\nDados da conta: \n" << std::endl;
-    std::cout << "Titular: " << b.titular.nome << std::endl;
-    std::cout << "Conta: " << b.numero << std::endl;
-    std::cout << "Agência: " << b.agencia.numero << std::endl;
-    std::cout << "Saldo atual: R$ " << b.saldo << std::endl;
-
-    std::cout << "\nDados da conta: \n" << std::endl;
-    std::cout << "Titular: " << c.titular.nome << std::endl;
-    std::cout << "Conta: " << c.numero << std::endl;
-    std::cout << "Agência: " << c.agencia.numero << std::endl;
-    std::cout << "Saldo atual: R$ " << c.saldo << std::endl;
-
-    std::cout << "Quantidade de contas: " << a.quantidade_contas << std::endl;
-    std::cout << "Quantidade de clientes: " << cl1.quantidade_clientes << std::endl;
     return 0;
 }

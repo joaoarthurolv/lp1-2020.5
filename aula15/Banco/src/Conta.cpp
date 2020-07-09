@@ -6,6 +6,13 @@ Conta::Conta(){
     this->quantidade_contas += 1;
 }
 
+Conta::Conta(Cliente& titular): titular(titular){
+    this->quantidade_contas += 1;
+}
+
+Conta::~Conta(){
+}
+
 void Conta::saca(double valor){
     this->saldo -= valor;
 }
